@@ -1,7 +1,8 @@
-import 'dotenv/config'
+import { createConnection } from "typeorm"
 
 const pass = process.env.DBPASS
 const dbname = process.env.DBNAME
+
 
 export default {
   "type":"postgres",
