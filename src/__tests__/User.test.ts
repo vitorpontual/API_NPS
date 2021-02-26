@@ -6,6 +6,10 @@ import createConnection from '../database'
 describe("User", () => {
   beforeAll(async () => {
     const connection = await createConnection();
+    await connection.query(`DELETE FROM users`)
+    await connection.query(`DELETE FROM surveys`)
+    await connection.query(`DELETE FROM surveys_users`)
+ 
 
     await connection.runMigrations();
   });
