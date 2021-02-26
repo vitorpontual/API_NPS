@@ -11,7 +11,7 @@ export default {
   "username":"postgres",
   "password": pass,
   "database": dbname,
-  "logging": true,
+  "logging": false,
   "migrations": ["./src/database/migrations/**.ts"],
   "entities": ["./src/app/models/*.ts"],
   "cli": {

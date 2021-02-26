@@ -1,7 +1,6 @@
 import { Connection, createConnection, getConnection, getConnectionOptions } from 'typeorm';
 
 
-
 export default async () => {
   const defaultOptions = await getConnectionOptions();
   

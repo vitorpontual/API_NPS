@@ -2,17 +2,18 @@ import request from 'supertest';
 import { app } from '../server';
 
 import createConnection from '../database'
+import { getConnection } from 'typeorm';
 
 describe("User", () => {
   beforeAll(async () => {
     const connection = await createConnection();
-    await connection.query(`DELETE FROM users`)
-    await connection.query(`DELETE FROM surveys`)
-    await connection.query(`DELETE FROM surveys_users`)
- 
-
+  
+    await connection.query("DELETE FROM surveys")
+    await connection.query("DELETE FROM users")
     await connection.runMigrations();
   });
+
+ 
 
   it('Should be able to create a new user', async () => {
     const response = await request(app).post("/users")
@@ -33,4 +34,3 @@ describe("User", () => {
       expect(response.status).toBe(400)
   });
 });
-
